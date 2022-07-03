@@ -98,6 +98,16 @@ body {
   background-color: blue;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 90vw;
+  max-width: 500px;
+}
+
 @-webkit-keyframes dropdown {
   0% {
     transform: translateY(-500%);
@@ -120,6 +130,9 @@ body {
   .board {
     width: 500px;
     height: 400px;
+  }
+  .header {
+    width: 500px;
   }
   .ball {
     width: 50px;
