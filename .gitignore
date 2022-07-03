@@ -1,0 +1,11 @@
+.DS_Store
+.vite-ssg-dist
+.vite-ssg-temp
+*.local
+dist
+dist-ssr
+html
+node_modules
+.idea/
+*.log
+*~
