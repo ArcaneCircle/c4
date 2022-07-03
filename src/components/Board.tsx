@@ -15,7 +15,7 @@ const Board = () => {
               if (game.insert(col))
                 console.log('se pudo jugar\n', game.state.board)
               setGameArray(game.state.board)
-            }}><p>{gameArray[index] === null ? 'vacía' : 'no vacía'}</p></Ball>
+            }}>{gameArray[index] === null ? <div>vacía</div> : <div className={gameArray[index].color === '#000' ? 'player1' : 'player2'}>{gameArray[index].color}</div>}</Ball>
           })}
         </section>
       }}
