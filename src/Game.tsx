@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 // import React, { useEffect, useState } from 'react'
 import Board from './components/Board'
+import Header from './components/Header'
 
 export const Game: React.FC<{}> = () => {
   const [started, setStarted] = useState(false)
@@ -9,7 +10,10 @@ export const Game: React.FC<{}> = () => {
     <>
       <div className="mycontainer">
         {started
-          ? <Board />
+          ? <>
+            <Header />
+            <Board />
+          </>
           : <div className="mainscreen" onClick={() => setStarted(true)}>Click to start</div>}
       </div>
     </>
