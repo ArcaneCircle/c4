@@ -25,6 +25,18 @@ body {
   cursor: pointer;
 }
 
+.winner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 255, 0.212);
+  color: aliceblue;
+  border-radius: 0.5rem;
+}
+
 .ball {
   width: 10vw;
   height: 10vw;
@@ -69,6 +81,7 @@ body {
 }
 
 .board {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
