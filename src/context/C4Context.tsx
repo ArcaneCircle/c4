@@ -7,8 +7,8 @@ interface C4ContextProps {
   setColumnSelected: React.Dispatch<React.SetStateAction<number>>
   activePlayer: Player
   setActivePlayer: React.Dispatch<React.SetStateAction<Player>>
-  players: Player[]
-  setPlayers: React.Dispatch<React.SetStateAction<Player[]>>
+  players: string[]
+  setPlayers: React.Dispatch<React.SetStateAction<string[]>>
   gameArray: Player[]
   setGameArray: React.Dispatch<React.SetStateAction<Player[]>>
   won: boolean
@@ -38,9 +38,9 @@ interface C4ProviderProps {
 export const C4Provider = ({ children }: C4ProviderProps) => {
   const [columnSelected, setColumnSelected] = useState<number>(0)
   const [gameArray, setGameArray] = useState<Player[]>(game.state.board)
-  const [activePlayer, setActivePlayer] = useState<Player>(new Player('#000'))
+  const [activePlayer, setActivePlayer] = useState<Player>(game.state.playing)
   const [won, setWon] = useState<boolean>(false)
-  const [players, setPlayers] = useState<Player[]>([])
+  const [players, setPlayers] = useState<string[]>([])
 
   return (
     <C4Context.Provider value={
