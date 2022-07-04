@@ -1,6 +1,10 @@
 import React, { createContext, useContext, useState } from 'react'
 import { Connect4, Player } from 'connect4-engine'
 
+interface WebxdcPlayer {
+  name: string
+  addr: string
+}
 interface C4ContextProps {
   game: Connect4
   playerName: string
@@ -9,8 +13,8 @@ interface C4ContextProps {
   setColumnSelected: React.Dispatch<React.SetStateAction<number>>
   activePlayer: Player
   setActivePlayer: React.Dispatch<React.SetStateAction<Player>>
-  players: string[]
-  setPlayers: React.Dispatch<React.SetStateAction<string[]>>
+  players: WebxdcPlayer[]
+  setPlayers: React.Dispatch<React.SetStateAction<WebxdcPlayer[]>>
   gameArray: Player[]
   setGameArray: React.Dispatch<React.SetStateAction<Player[]>>
   won: boolean
@@ -47,7 +51,7 @@ export const C4Provider = ({ children }: C4ProviderProps) => {
   const [gameArray, setGameArray] = useState<Player[]>(game.state.board)
   const [activePlayer, setActivePlayer] = useState<Player>(game.state.playing)
   const [won, setWon] = useState<boolean>(false)
-  const [players, setPlayers] = useState<string[]>([])
+  const [players, setPlayers] = useState<WebxdcPlayer[]>([])
 
   return (
     <C4Context.Provider value={
