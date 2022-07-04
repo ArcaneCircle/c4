@@ -18,6 +18,9 @@ body {
   align-items: center;
   justify-content: center;
   margin: auto;
+}
+
+.mainscreen button {
   padding: 1rem;
   border-radius: 2rem;
   background-color: blue;
