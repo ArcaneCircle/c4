@@ -37,7 +37,7 @@
     "unplugin-auto-import": "^0.7.2",
     "vite": "^2.9.12",
     "vitest": "^0.12.10",
-    "webxdc-dev": "^0.6.0"
+    "webxdc-dev": "^0.14.0"
   },
   "eslintConfig": {
     "extends": "@antfu"
