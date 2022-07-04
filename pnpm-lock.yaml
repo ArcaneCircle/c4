@@ -23,7 +23,7 @@ specifiers:
   usehooks-ts: ^2.5.4
   vite: ^2.9.12
   vitest: ^0.12.10
-  webxdc-dev: ^0.14.0
+  webxdc-dev: ^0.11.0
 
 dependencies:
   '@brajkowski/connect4-logic': 1.0.6
@@ -50,7 +50,7 @@ devDependencies:
   unplugin-auto-import: 0.7.2_vite@2.9.13
   vite: 2.9.13
   vitest: 0.12.10_jsdom@19.0.0
-  webxdc-dev: 0.14.0
+  webxdc-dev: 0.11.0
 
 packages:
 
@@ -4149,14 +4149,6 @@ packages:
       solid-js: 1.4.5
     dev: true
 
-  /solid-icons/0.4.13_solid-js@1.4.5:
-    resolution: {integrity: sha512-1ZbXaR0XEeI0wluWm1k5ziI/OrWqGN6DxAnvJXqi5ZXSmDwlNtLzf1rgyHxprbGbyybvO1uj7vozaCmoAgZBlg==}
-    peerDependencies:
-      solid-js: '*'
-    dependencies:
-      solid-js: 1.4.5
-    dev: true
-
   /solid-js/1.4.5:
     resolution: {integrity: sha512-32NGpuabEJDTeQ7fjaTR2TLC7R/X5hbqhYdEQ1e+GcIK8r8+/V0Nv17eZQii5Z/97/mtdt8yi63chzg73qnz/A==}
     dev: true
@@ -4750,14 +4742,13 @@ packages:
     resolution: {integrity: sha512-h9atBP/bsZohWpHnr+2sic8Iecb60GxftXsWNLLLSqewgIsGzByd2gcIID4nXcG+3tNe4GQG3dLcff3kXupdRA==}
     dev: true
 
-  /webxdc-dev/0.14.0:
-    resolution: {integrity: sha512-p0jFgrG/j6WEW9L6C/amRFJHCP4LoWaJ94PbCE7RdJ8wmrMmu9tAQ2Wobh8eTEvxnwhbxnq5akWsa/1s7mCelQ==}
+  /webxdc-dev/0.11.0:
+    resolution: {integrity: sha512-rofTx5jZChNb8iVXY1Q2ITG9bKMJghn+A5em5i34ut9OnTShMQju8o52oG6jyznBQgeEo5tudRXMZMFWZnSiLw==}
     hasBin: true
     dependencies:
       '@hope-ui/solid': 0.6.2_kiucr5wx5ungsrq2ssojrv6iue
       '@stitches/core': 1.2.8
       adm-zip: 0.5.9
-      body-parser: 1.20.0
       commander: 9.3.0
       express: 4.18.1
       express-ws: 5.0.2_express@4.18.1
@@ -4765,7 +4756,6 @@ packages:
       node-fetch: 2.6.7
       open: 8.4.0
       solid-app-router: 0.4.1_solid-js@1.4.5
-      solid-icons: 0.4.13_solid-js@1.4.5
       solid-js: 1.4.5
       solid-transition-group: 0.0.10_solid-js@1.4.5
       toml: 3.0.0
