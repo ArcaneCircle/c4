@@ -3,6 +3,8 @@ import { Connect4, Player } from 'connect4-engine'
 
 interface C4ContextProps {
   game: Connect4
+  playerName: string
+  playerAddr: string
   columnSelected: number
   setColumnSelected: React.Dispatch<React.SetStateAction<number>>
   activePlayer: Player
@@ -17,8 +19,13 @@ interface C4ContextProps {
 
 const game = new Connect4([new Player('#000'), new Player('#FFF')])
 
+const playerName = window.webxdc.selfName;
+const playerAddr = window.webxdc.selfAddr;
+
 export const C4Context = createContext<C4ContextProps>({
   game,
+  playerName,
+  playerAddr,
   columnSelected: 0,
   setColumnSelected: () => { },
   activePlayer: new Player('#000'),
@@ -46,6 +53,8 @@ export const C4Provider = ({ children }: C4ProviderProps) => {
     <C4Context.Provider value={
       {
         game,
+        playerName,
+        playerAddr,
         columnSelected,
         setColumnSelected,
         activePlayer,
