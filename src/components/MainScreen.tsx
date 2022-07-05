@@ -1,13 +1,15 @@
 import { useC4Context } from '~/context/C4Context'
 
 const MainScreen = (props: MainScreenProps) => {
-  const { game, players, setPlayers, playerAddr, playerName } = useC4Context()
+  const { players, setPlayers, playerAddr, playerName } = useC4Context()
   const isIncluded = players.some((p) => p.addr === playerAddr)
   const handleJoin = () => {
+    console.log(players)
     const newPlayers = [...players, { name: playerName, addr: playerAddr, color: players.length === 0 ? '#000' : '#FFF' }]
     setPlayers(newPlayers)
+    console.log(newPlayers)
     const text = playerName + " joined Connect4"
-    window.webxdc.sendUpdate({ payload: { game: game, players: newPlayers }, info: text }, text)
+    window.webxdc.sendUpdate({ payload: { move: -1, players: newPlayers }, info: text }, text)
   }
   return (
     <div className="mainscreen" >
