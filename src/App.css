@@ -127,7 +127,7 @@ body {
     0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.5);
 }
 
-.header {
+header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -135,6 +135,17 @@ body {
 
   width: 90vw;
   max-width: 500px;
+}
+
+header h2 {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  max-width: 90%;
 }
 
 @-webkit-keyframes dropdown {
@@ -160,7 +171,7 @@ body {
     width: 500px;
     height: 400px;
   }
-  .header {
+  header {
     width: 500px;
   }
   .ball {
