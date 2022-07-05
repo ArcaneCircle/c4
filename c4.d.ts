@@ -3,6 +3,10 @@ interface MainScreenProps {
     children?: React.ReactElement
 }
 
+interface HeaderProps {
+    blur: boolean
+}
+
 interface WebxdcPlayer {
     name: string
     addr: string
