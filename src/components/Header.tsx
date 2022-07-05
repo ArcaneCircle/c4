@@ -1,10 +1,7 @@
 import { useC4Context } from '~/context/C4Context'
 
 const Header = () => {
-  const { game, activePlayer, setActivePlayer, players } = useC4Context()
-  useEffect(() => {
-    setActivePlayer(game.state.playing)
-  }, [game.playing])
+  const { activePlayer, players } = useC4Context()
   return (
     <div className="header">
       <div className={activePlayer.color === '#000' ? 'player1' : 'player2'}></div>
