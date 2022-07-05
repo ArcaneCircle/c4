@@ -9,7 +9,7 @@ const MainScreen = (props: MainScreenProps) => {
     setPlayers(newPlayers)
     console.log(newPlayers)
     const text = playerName + " joined Connect4"
-    window.webxdc.sendUpdate({ payload: { move: -1, players: newPlayers }, info: text }, text)
+    window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: text }, text)
   }
   return (
     <div className="mainscreen" >
