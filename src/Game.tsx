@@ -27,7 +27,6 @@ export const Game: React.FC<{}> = () => {
       <div className="mycontainer">
         {started
           ? <>
-            <Header />
             <Board />
           </>
           : <MainScreen onClick={() => setStarted(true)} />}
