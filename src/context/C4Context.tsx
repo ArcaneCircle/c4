@@ -1,26 +1,6 @@
 import React, { createContext, useContext, useState } from 'react'
 import { Connect4, Player } from 'connect4-engine'
 
-interface WebxdcPlayer {
-  name: string
-  addr: string
-}
-interface C4ContextProps {
-  game: Connect4
-  playerName: string
-  playerAddr: string
-  columnSelected: number
-  setColumnSelected: React.Dispatch<React.SetStateAction<number>>
-  activePlayer: Player
-  setActivePlayer: React.Dispatch<React.SetStateAction<Player>>
-  players: WebxdcPlayer[]
-  setPlayers: React.Dispatch<React.SetStateAction<WebxdcPlayer[]>>
-  gameArray: Player[]
-  setGameArray: React.Dispatch<React.SetStateAction<Player[]>>
-  won: boolean
-  setWon: React.Dispatch<React.SetStateAction<boolean>>
-}
-
 const game = new Connect4([new Player('#000'), new Player('#FFF')])
 
 const playerName = window.webxdc.selfName;
