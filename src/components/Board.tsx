@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import Ball from './Ball'
 import Header from './Header'
 import { Connect4, Player } from 'connect4-engine'
@@ -7,7 +6,7 @@ import { C4Context } from '~/context/C4Context'
 const Board = () => {
   return (
     <C4Context.Consumer>
-      {({ playerAddr, players, gameArray, setGameArray, moves, setMoves, setActivePlayer }) => {
+      {({ playerAddr, players, gameArray, setGameArray, moves, setMoves }) => {
         const game = new Connect4([new Player('#000'), new Player('#FFF')])
         moves.map(move => game.insert(move))
         return <>
