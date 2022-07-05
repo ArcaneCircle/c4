@@ -3,6 +3,11 @@ body {
   margin: 0;
 }
 
+:root {
+  --p1color: rgb(255, 0, 0);
+  --p2color: rgb(255, 255, 0);
+}
+
 .mycontainer {
   display: flex;
   flex-direction: column;
@@ -41,19 +46,37 @@ body {
   transform: translate(-50%, -50%);
   font-size: 2rem;
   padding: 0.5rem;
-  background-color: rgba(0, 0, 255, 0.212);
+  /* background-color: rgba(0, 0, 255, 0.212); */
   color: aliceblue;
   border-radius: 0.5rem;
+  text-align: center;
+
+  -webkit-filter: drop-shadow(0.1rem 0.1rem 0.5rem black);
+
+          filter: drop-shadow(0.1rem 0.1rem 0.2rem black);
 
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 90%;
 }
 
 .winner::after {
-  content: " won!";
+  content: " won!";  
+  color: aliceblue;
+}
+
+.winner span {
+  font-weight: bold;
+}
+
+.red {
+  color: var(--p1color);
+}
+
+.yellow {
+  color: var(--p2color);
 }
 
 .ball {
@@ -75,7 +98,7 @@ body {
   width: 10vw;
   height: 10vw;
   border-radius: 100%;
-  background: rgb(255, 0, 0);
+  background: var(--p1color);
   box-shadow: inset -0.2rem -0.1rem 1rem #00000099,
     0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.5);
 
@@ -90,7 +113,7 @@ body {
   width: 10vw;
   height: 10vw;
   border-radius: 100%;
-  background: rgb(255, 255, 0);
+  background: var(--p2color);
   box-shadow: inset -0.2rem -0.1rem 1rem #00000099,
     0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.5);
 

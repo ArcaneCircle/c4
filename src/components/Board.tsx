@@ -30,7 +30,7 @@ const Board = () => {
               }}>{game.state.board[index] === null ? <div></div> : <div className={game.state.board[index].color === '#000' ? 'player1' : 'player2'}></div>}</Ball>
             })}
           </section>
-          {game.state.winner && <div className="winner">{game.state.winner.color === '#000' ? 'Ganó ' + players[0].name : 'Ganó ' + players[1].name}</div>}
+          {game.state.winner && <div className="winner"><span className={game.state.winner.color === '#000' ? "red" : "yellow"}>{game.state.winner.color === '#000' ? players[0].name : players[1].name}</span></div>}
         </>
       }}
     </C4Context.Consumer>
