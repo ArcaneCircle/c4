@@ -29,5 +29,6 @@ interface C4ContextProps {
 
 interface C4Update {
     move: number
+    moves: number[]
     players: WebxdcPlayer[]
 }
