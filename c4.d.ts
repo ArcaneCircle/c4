@@ -11,7 +11,6 @@ interface WebxdcPlayer {
 
 interface C4ContextProps {
     game: Connect4
-    setGame: React.Dispatch<React.SetStateAction<Connect4>>
     playerName: string
     playerAddr: string
     columnSelected: number
@@ -27,6 +26,6 @@ interface C4ContextProps {
 }
 
 interface C4Update {
-    game: Connect4
+    move: number
     players: WebxdcPlayer[]
 }
