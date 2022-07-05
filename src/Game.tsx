@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 // import React, { useEffect, useState } from 'react'
 import Board from './components/Board'
-import Header from './components/Header'
 import MainScreen from './components/MainScreen'
 // import { Connect4 } from 'connect4-engine'
 import { useC4Context } from '~/context/C4Context'
