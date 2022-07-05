@@ -10,6 +10,8 @@ export const C4Context = createContext<C4ContextProps>({
   game,
   playerName,
   playerAddr,
+  moves: [],
+  setMoves: () => { },
   columnSelected: 0,
   setColumnSelected: () => { },
   activePlayer: new Player('#000'),
@@ -28,10 +30,12 @@ interface C4ProviderProps {
 
 export const C4Provider = ({ children }: C4ProviderProps) => {
   const [columnSelected, setColumnSelected] = useState<number>(0)
+  const [moves, setMoves] = useState<number[]>([])
   const [gameArray, setGameArray] = useState<Player[]>(game.state.board)
   const [activePlayer, setActivePlayer] = useState<Player>(game.state.playing)
   const [won, setWon] = useState<boolean>(false)
   const [players, setPlayers] = useState<WebxdcPlayer[]>([])
+
 
   return (
     <C4Context.Provider value={
@@ -39,6 +43,8 @@ export const C4Provider = ({ children }: C4ProviderProps) => {
         game,
         playerName,
         playerAddr,
+        moves,
+        setMoves,
         columnSelected,
         setColumnSelected,
         activePlayer,
