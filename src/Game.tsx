@@ -8,18 +8,21 @@ import { useC4Context } from '~/context/C4Context'
 import { ReceivedStatusUpdate } from 'webxdc'
 
 export const Game: React.FC<{}> = () => {
-  const { setGameArray } = useC4Context()
+  const { game, setPlayers, players } = useC4Context()
   useEffect(() => {
     console.log('useEffect triggered')
     window.webxdc.setUpdateListener((update: ReceivedStatusUpdate<C4Update>) => {
-      const { game } = update.payload
-      if (game) {
-        setGameArray(game.state.board)
+      console.log("incomming update")
+      const { move, players } = update.payload
+      if (move) {
+        if (move > -1) game.insert(move)
+        if (players) setPlayers(players)
+        // console.log(game)
       }
     })
   }, [])
 
-  const [started, setStarted] = useState(false)
+  const [started, setStarted] = useState(players.length > 1)
   return (
     <>
       <div className="mycontainer">
