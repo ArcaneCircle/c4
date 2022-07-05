@@ -1,11 +1,14 @@
 /* eslint-disable no-console */
 import Ball from './Ball'
+import { Connect4, Player } from 'connect4-engine'
 import { C4Context } from '~/context/C4Context'
 
 const Board = () => {
   return (
     <C4Context.Consumer>
-      {({ game, playerAddr, players, gameArray, setGameArray }) => {
+      {({ playerAddr, players, gameArray, setGameArray, moves, setMoves }) => {
+        const game = new Connect4([new Player('#000'), new Player('#FFF')])
+        moves.map(move => game.insert(move))
         // console.log(game.state)
         return <>
           <section className={game.state.winner ? 'board blur' : 'board'}>
@@ -18,9 +21,11 @@ const Board = () => {
 
                 if (isTurn && game.insert(col)) {
                   console.log('se pudo jugar', game)
+                  const newMoves = [...moves, col]
+                  setMoves(newMoves)
                   const nextPlayer = players.find(p => p.addr !== playerAddr)
                   const text = "It's " + nextPlayer?.name + " turn in Connect4"
-                  window.webxdc.sendUpdate({ payload: { move: col, players }, info: text }, text)
+                  window.webxdc.sendUpdate({ payload: { move: col, moves: newMoves, players }, info: text }, text)
                   setGameArray(game.state.board)
                 }
               }}>{game.state.board[index] === null ? <div></div> : <div className={game.state.board[index].color === '#000' ? 'player1' : 'player2'}></div>}</Ball>
