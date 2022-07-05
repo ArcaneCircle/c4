@@ -44,6 +44,16 @@ body {
   background-color: rgba(0, 0, 255, 0.212);
   color: aliceblue;
   border-radius: 0.5rem;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-width: 90%;
+}
+
+.winner::after {
+  content: " won!";
 }
 
 .ball {
