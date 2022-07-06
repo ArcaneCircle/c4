@@ -17,6 +17,8 @@ interface C4ContextProps {
     game: Connect4
     playerName: string
     playerAddr: string
+    lastMove: number
+    setLastMove: React.Dispatch<React.SetStateAction<number>>
     moves: number[]
     setMoves: React.Dispatch<React.SetStateAction<number[]>>
     columnSelected: number

@@ -10,6 +10,8 @@ export const C4Context = createContext<C4ContextProps>({
   game,
   playerName,
   playerAddr,
+  lastMove: -1,
+  setLastMove: () => { },
   moves: [],
   setMoves: () => { },
   columnSelected: 0,
@@ -30,6 +32,7 @@ interface C4ProviderProps {
 
 export const C4Provider = ({ children }: C4ProviderProps) => {
   const [columnSelected, setColumnSelected] = useState<number>(0)
+  const [lastMove, setLastMove] = useState<number>(-1)
   const [moves, setMoves] = useState<number[]>([])
   const [gameArray, setGameArray] = useState<Player[]>(game.state.board)
   const [activePlayer, setActivePlayer] = useState<Player>(game.state.playing)
@@ -43,6 +46,8 @@ export const C4Provider = ({ children }: C4ProviderProps) => {
         game,
         playerName,
         playerAddr,
+        lastMove,
+        setLastMove,
         moves,
         setMoves,
         columnSelected,
