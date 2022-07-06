@@ -26,7 +26,7 @@ const Board = () => {
                   window.webxdc.sendUpdate({ payload: { move: col, moves: newMoves, players }, info: text }, text)
                   setGameArray(game.state.board)
                 }
-              }}>{game.state.board[index] === null ? <div></div> : <div className={game.state.board[index].color === '#000' ? 'player1' : 'player2'}></div>}</Ball>
+              }}>{game.state.board[index] === null ? <div></div> : <div className={game.state.board[index].color === '#000' ? 'player1 dropdown' : 'player2 dropdown'}></div>}</Ball>
             })}
           </section>
           {game.state.winner && <div className="winner"><span className={game.state.winner.color === '#000' ? "red" : "yellow"}>{game.state.winner.color === '#000' ? players[0].name : players[1].name}</span></div>}
