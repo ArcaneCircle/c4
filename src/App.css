@@ -39,8 +39,10 @@ body {
 
 .mainscreen button {
   padding: 1rem;
+  margin-bottom: 1rem;
   border-radius: 2rem;
   background-color: rgba(0, 0, 0, 0.438);
+  border: none;
   color: aliceblue;
   cursor: pointer;
 }
