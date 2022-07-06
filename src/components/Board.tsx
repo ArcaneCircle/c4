@@ -6,9 +6,17 @@ import { C4Context } from '~/context/C4Context'
 const Board = () => {
   return (
     <C4Context.Consumer>
-      {({ playerAddr, players, gameArray, setGameArray, moves, setMoves }) => {
+      {({ playerAddr, players, gameArray, setGameArray, moves, setMoves, lastMove }) => {
         const game = new Connect4([new Player('#000'), new Player('#FFF')])
         moves.map(move => game.insert(move))
+        let lastMoveIndex = lastMove
+        for (let i = 0; i < 6; i++) {
+          if (game.state.board[lastMove + 7 * i] !== null) {
+            lastMoveIndex = lastMove + 7 * i
+            break
+          }
+        }
+        console.log(lastMoveIndex, lastMove)
         return <>
           <Header blur={!!game.state.winner} />
           <section className={game.state.winner ? 'board blur' : 'board'}>
@@ -26,7 +34,7 @@ const Board = () => {
                   window.webxdc.sendUpdate({ payload: { move: col, moves: newMoves, players }, info: text }, text)
                   setGameArray(game.state.board)
                 }
-              }}>{game.state.board[index] === null ? <div></div> : <div className={game.state.board[index].color === '#000' ? 'player1 dropdown' : 'player2 dropdown'}></div>}</Ball>
+              }}>{game.state.board[index] === null ? <div></div> : <div className={game.state.board[index].color === '#000' ? index === lastMoveIndex ? 'dropdown player1' : 'player1' : index === lastMoveIndex ? 'dropdown player2' : 'player2'}></div>}</Ball>
             })}
           </section>
           {game.state.winner && <div className="winner"><span className={game.state.winner.color === '#000' ? "red" : "yellow"}>{game.state.winner.color === '#000' ? players[0].name : players[1].name}</span></div>}
