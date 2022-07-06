@@ -178,7 +178,7 @@ header .yellow {
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
 
   width: 90vw;
