@@ -7,7 +7,8 @@ const MainScreen = (props: MainScreenProps) => {
     const newPlayers = [...players, { name: playerName, addr: playerAddr, color: players.length === 0 ? '#000' : '#FFF' }]
     setPlayers(newPlayers)
     const text = playerName + " joined Connect4"
-    window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: text }, text)
+    const summary = newPlayers.length === 2 ? newPlayers[0].name + " vs " + newPlayers[1].name : newPlayers[0].name + " is waiting for another player"
+    window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: text, summary: summary }, text)
   }
   return (
     <div className="mainscreen" >
