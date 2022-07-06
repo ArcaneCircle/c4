@@ -13,6 +13,7 @@ export const Game: React.FC<{}> = () => {
       if (newMoves && moves.length < newMoves.length) {
         setMoves(newMoves)
         setLastMove(newMove)
+        if (newPlayers[0].addr !== newPlayers[1].addr) setPlayers(newPlayers)
       }
       if (players.length < newPlayers.length) setPlayers(newPlayers)
     })
