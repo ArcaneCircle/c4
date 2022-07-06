@@ -2,6 +2,7 @@ import Ball from './Ball'
 import Header from './Header'
 import { Connect4, Player } from 'connect4-engine'
 import { C4Context } from '~/context/C4Context'
+import WinnerScreen from './WinnerScreen'
 
 const Board = () => {
   return (
@@ -37,7 +38,7 @@ const Board = () => {
               }}>{game.state.board[index] === null ? <div></div> : <div className={game.state.board[index].color === '#000' ? index === lastMoveIndex ? 'dropdown player1' : 'player1' : index === lastMoveIndex ? 'dropdown player2' : 'player2'}></div>}</Ball>
             })}
           </section>
-          {game.state.winner && <div className="winner"><span className={game.state.winner.color === '#000' ? "red" : "yellow"}>{game.state.winner.color === '#000' ? players[0].name : players[1].name}</span></div>}
+          {game.state.winner && <WinnerScreen winner={game.state.winner} players={players} />}
         </>
       }}
     </C4Context.Consumer>
