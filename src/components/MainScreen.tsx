@@ -4,7 +4,7 @@ const MainScreen = (props: MainScreenProps) => {
   const { players, setPlayers, playerAddr, playerName } = useC4Context()
   const isIncluded = players.some((p) => p.addr === playerAddr)
   const handleJoin = () => {
-    const newPlayers = [...players, { name: playerName, addr: playerAddr, color: players.length === 0 ? '#000' : '#FFF' }]
+    const newPlayers = [...players, { name: playerName, addr: playerAddr, color: players.length === 0 ? '#000' : '#FFF', won: 0 }]
     setPlayers(newPlayers)
     const text = playerName + " joined Connect4"
     const summary = newPlayers.length === 2 ? newPlayers[0].name + " vs " + newPlayers[1].name : newPlayers[0].name + " is waiting for another player"

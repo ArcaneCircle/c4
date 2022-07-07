@@ -11,6 +11,7 @@ interface WebxdcPlayer {
     name: string
     addr: string
     color: string
+    won: number
 }
 
 interface C4ContextProps {
