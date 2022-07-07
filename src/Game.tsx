@@ -9,13 +9,15 @@ export const Game: React.FC<{}> = () => {
 
   useEffect(() => {
     window.webxdc.setUpdateListener((update: ReceivedStatusUpdate<C4Update>) => {
-      const { move: newMove, moves: newMoves, players: newPlayers } = update.payload
-      if (newMoves && moves.length < newMoves.length) {
-        setMoves(newMoves)
-        setLastMove(newMove)
-        if (players[0].addr !== newPlayers[0].addr && players.length === newPlayers.length) setPlayers(newPlayers)
+      if (update.serial && update.max_serial && update.serial === update.max_serial) {
+        const { move: newMove, moves: newMoves, players: newPlayers } = update.payload
+        if (newMoves && moves.length < newMoves.length) {
+          setMoves(newMoves)
+          setLastMove(newMove)
+          if (players.length === newPlayers.length && players[0].addr !== newPlayers[0].addr) setPlayers(newPlayers)
+        }
+        if (players.length < newPlayers.length) setPlayers(newPlayers)
       }
-      if (players.length < newPlayers.length) setPlayers(newPlayers)
     })
   }, [])
 
