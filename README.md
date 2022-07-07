@@ -1,6 +1,6 @@
-# Sudoku
+# DeltaConnect
 
-Version of [this other project](https://github.com/raravi/sudoku) for Delta Chat
+Connect 4 board game clon for Delta Chat
 
 ## Features
 
