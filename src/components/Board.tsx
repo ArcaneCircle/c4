@@ -3,6 +3,7 @@ import Header from './Header'
 import { Connect4, Player } from 'connect4-engine'
 import { C4Context } from '~/context/C4Context'
 import WinnerScreen from './WinnerScreen'
+import Status from './Status'
 
 const Board = () => {
   return (
@@ -17,7 +18,7 @@ const Board = () => {
             break
           }
         }
-        console.log(lastMoveIndex, lastMove)
+
         return <>
           <Header blur={!!game.state.winner} />
           <section className={game.state.winner ? 'board blur' : 'board'}>
@@ -38,6 +39,7 @@ const Board = () => {
               }}>{game.state.board[index] === null ? <div></div> : <div className={game.state.board[index].color === '#000' ? index === lastMoveIndex ? 'dropdown player1' : 'player1' : index === lastMoveIndex ? 'dropdown player2' : 'player2'}></div>}</Ball>
             })}
           </section>
+          <Status blur={!!game.state.winner} />
           {game.state.winner && <WinnerScreen winner={game.state.winner} players={players} />}
         </>
       }}
