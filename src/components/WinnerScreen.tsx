@@ -14,13 +14,13 @@ const WinnerScreen = (props: WinnerProps) => {
         const newPlayers = [players[1], players[0]]
         newPlayers[0].color = '#000'
         newPlayers[1].color = '#FFF'
-        // update games won for winner
+
         if (props.winner.color === '#000') {
-            // I already switched colors
             newPlayers[1].won++
-        } else {
+        } else if (props.winner.color === '#FFF') {
             newPlayers[0].won++
         }
+
         setPlayers(newPlayers)
         const summary = newPlayers[0].name + " (" + newPlayers[0].won + ") " + " vs " + " (" + newPlayers[1].won + ") " + newPlayers[1].name
 
