@@ -14,11 +14,18 @@ const WinnerScreen = (props: WinnerProps) => {
         const newPlayers = [players[1], players[0]]
         newPlayers[0].color = '#000'
         newPlayers[1].color = '#FFF'
+        // update games won for winner
+        if (props.winner.color === '#000') {
+            // I already switched colors
+            newPlayers[1].won++
+        } else {
+            newPlayers[0].won++
+        }
         setPlayers(newPlayers)
-        console.log(players, newPlayers)
-        const summary = newPlayers[0].name + " vs " + newPlayers[1].name
-        // TODO: cambiar el texto
-        const text = "New game started"
+        const summary = newPlayers[0].name + " (" + newPlayers[0].won + ") " + " vs " + " (" + newPlayers[1].won + ") " + newPlayers[1].name
+
+        const part = newPlayers[0].won + newPlayers[1].won
+        const text = newPlayers[0].name + " vs " + newPlayers[1].name + " (" + part + ")"
         window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: text, summary: summary }, text)
     }
     return (
