@@ -11,7 +11,7 @@ const Status = (props: StatusProps) => {
             <p className="font-bold"><span className='p1icon h-4 w-4 inline-flex'></span> {players[0].name} ({players[0].won})</p>
             <p className='italic'>vs</p>
             <p className='font-bold'><span className='p2icon h-4 w-4 inline-flex'></span> {players[1].name} ({players[1].won})</p>
-            {isTurn && <button className='btn uppercase'>Surrender</button>}
+            <button className={isTurn ? 'btn uppercase' : 'btn-disabled uppercase'}>Surrender</button>
         </section>
     )
 }

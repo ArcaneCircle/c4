@@ -248,6 +248,18 @@ header h2 {
   font-weight: bold;
 }
 
+.btn-disabled {
+  padding: 1rem;
+  margin: 1rem auto;
+  border-radius: 2rem;
+  background-color: gray;
+  border: none;
+  color: aliceblue;
+  cursor: not-allowed;
+
+  font-weight: bold;
+}
+
 @-webkit-keyframes dropdown {
   0% {
     transform: translateY(-500%);
