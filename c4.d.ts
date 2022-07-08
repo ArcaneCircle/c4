@@ -7,6 +7,11 @@ interface HeaderProps {
     blur: boolean
 }
 
+interface StatusProps {
+    blur: boolean
+    color: string
+}
+
 interface WebxdcPlayer {
     name: string
     addr: string

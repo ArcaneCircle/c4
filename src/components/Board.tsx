@@ -39,7 +39,7 @@ const Board = () => {
               }}>{game.state.board[index] === null ? <div></div> : <div className={game.state.board[index].color === '#000' ? index === lastMoveIndex ? 'dropdown player1' : 'player1' : index === lastMoveIndex ? 'dropdown player2' : 'player2'}></div>}</Ball>
             })}
           </section>
-          <Status blur={!!game.state.winner} />
+          <Status blur={!!game.state.winner} color={game.state.playing.color} />
           {game.state.winner && <WinnerScreen winner={game.state.winner} players={players} />}
         </>
       }}
