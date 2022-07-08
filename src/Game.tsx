@@ -11,7 +11,7 @@ export const Game: React.FC<{}> = () => {
     window.webxdc.setUpdateListener((update: ReceivedStatusUpdate<C4Update>) => {
       if (update.serial && update.max_serial && update.serial === update.max_serial) {
         const { move: newMove, moves: newMoves, players: newPlayers } = update.payload
-        if (newMoves && moves.length < newMoves.length) {
+        if (newMoves && (moves.length < newMoves.length || newMoves.length === 0)) {
           setMoves(newMoves)
           setLastMove(newMove)
           if (players.length === newPlayers.length && players[0].addr !== newPlayers[0].addr) setPlayers(newPlayers)
