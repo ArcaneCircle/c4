@@ -12,8 +12,8 @@ const MainScreen = (props: MainScreenProps) => {
   return (
     <div className="mainscreen" >
       <span className='player1'></span>
-      <h1>Connect Four</h1>
-      <p>Hi, {playerName}! This is the classic Connect Four game</p>
+      <h1>DeltaConnect</h1>
+      <p>Hi, {playerName}! This is a clon of the classic Connect Four game</p>
       {players.length > 0 && <>
         <h2>Players:</h2>
         <ul>
