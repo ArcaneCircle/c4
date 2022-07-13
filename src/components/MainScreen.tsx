@@ -22,7 +22,7 @@ const MainScreen = (props: MainScreenProps) => {
           {players.map(player => <li key={player.addr}>{player.name}</li>)}
         </ul>
       </>}
-      {(players.length < 2 && !isIncluded) && clicked ? <button onClick={handleJoin}>Join</button> : <p>Waiting...</p>}
+      {(players.length < 2 && !isIncluded) && !clicked ? <button onClick={handleJoin}>Join</button> : <p>Waiting...</p>}
       {players.length === 2 && <button onClick={props.onClick} >Click to start</button>}
       <span className='player2'></span>
     </div>
