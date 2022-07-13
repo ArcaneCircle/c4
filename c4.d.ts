@@ -43,4 +43,5 @@ interface C4Update {
     move: number
     moves: number[]
     players: WebxdcPlayer[]
+    type?: string
 }
