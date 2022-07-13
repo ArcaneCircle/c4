@@ -17,11 +17,11 @@ export const Game: React.FC<{}> = () => {
           setPlayers(newPlayers)
         } else if (newPlayers.length === 1 && newPlayers[0].addr === playerAddr) {
           const summary = newPlayers[0].name + " is waiting for another player"
-          window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers, type: "create" }, info: summary, summary }, summary)
+          window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: summary, summary }, summary)
           setPlayers(newPlayers)
         } else if (newPlayers.length === 2 && newPlayers[0].addr === playerAddr) {
           const summary = newPlayers[0].name + " vs " + newPlayers[1].name
-          window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers, type: "join" }, info: summary, summary }, summary)
+          window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: summary, summary }, summary)
           setPlayers(newPlayers)
         }
       }

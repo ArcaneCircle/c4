@@ -24,7 +24,7 @@ const Status = (props: StatusProps) => {
 
             const part = newPlayers[0].won + newPlayers[1].won
             const text = newPlayers[0].name + " vs " + newPlayers[1].name + " (" + part + ")"
-            window.webxdc.sendUpdate({ payload: { move: -1, moves: [] as number[], players: newPlayers, type: "new game" }, info: text, summary: summary }, text)
+            window.webxdc.sendUpdate({ payload: { move: -1, moves: [] as number[], players: newPlayers }, info: text, summary: summary }, text)
         }
     }
     return (

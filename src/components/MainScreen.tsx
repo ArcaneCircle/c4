@@ -1,13 +1,15 @@
 import { useC4Context } from '~/context/C4Context'
 
 const MainScreen = (props: MainScreenProps) => {
-  const { players, setPlayers, playerAddr, playerName } = useC4Context()
+  const [clicked, setClicked] = useState(false)
+  const { players, playerAddr, playerName } = useC4Context()
   const isIncluded = players.some((p) => p.addr === playerAddr)
   const handleJoin = () => {
     const newPlayers = [...players, { name: playerName, addr: playerAddr, color: players.length === 0 ? '#000' : '#FFF', won: 0 }]
-    setPlayers(newPlayers)
+    // setPlayers(newPlayers)
+    setClicked(true)
     const text = playerName + " attempted to join Connect4"
-    window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers } }, text)
+    window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers, type: "join" } }, text)
   }
   return (
     <div className="mainscreen" >
@@ -20,7 +22,7 @@ const MainScreen = (props: MainScreenProps) => {
           {players.map(player => <li key={player.addr}>{player.name}</li>)}
         </ul>
       </>}
-      {(players.length < 2 && !isIncluded) && <button onClick={handleJoin}>Join</button>}
+      {(players.length < 2 && !isIncluded) && clicked ? <button onClick={handleJoin}>Join</button> : <p>Waiting...</p>}
       {players.length === 2 && <button onClick={props.onClick} >Click to start</button>}
       <span className='player2'></span>
     </div>
