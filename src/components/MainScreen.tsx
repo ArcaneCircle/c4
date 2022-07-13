@@ -6,9 +6,8 @@ const MainScreen = (props: MainScreenProps) => {
   const handleJoin = () => {
     const newPlayers = [...players, { name: playerName, addr: playerAddr, color: players.length === 0 ? '#000' : '#FFF', won: 0 }]
     setPlayers(newPlayers)
-    const text = playerName + " joined Connect4"
-    const summary = newPlayers.length === 2 ? newPlayers[0].name + " vs " + newPlayers[1].name : newPlayers[0].name + " is waiting for another player"
-    window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: text, summary: summary }, text)
+    const text = playerName + " attempted to join Connect4"
+    window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers } }, text)
   }
   return (
     <div className="mainscreen" >
