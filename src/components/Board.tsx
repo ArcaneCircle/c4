@@ -33,7 +33,7 @@ const Board = () => {
                   setMoves(newMoves)
                   const nextPlayer = players.find(p => p.addr !== playerAddr)
                   const text = "It's " + nextPlayer?.name + " turn in Connect4"
-                  window.webxdc.sendUpdate({ payload: { move: col, moves: newMoves, players }, info: text }, text)
+                  window.webxdc.sendUpdate({ payload: { move: col, moves: newMoves, players, type: "play" }, info: text }, text)
                   setGameArray(game.state.board)
                 }
               }}>{game.state.board[index] === null ? <div></div> : <div className={game.state.board[index].color === '#000' ? index === lastMoveIndex ? 'dropdown player1' : 'player1' : index === lastMoveIndex ? 'dropdown player2' : 'player2'}></div>}</Ball>
