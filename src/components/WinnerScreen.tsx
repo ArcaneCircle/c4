@@ -24,9 +24,9 @@ const WinnerScreen = (props: WinnerProps) => {
         setPlayers(newPlayers)
         const summary = newPlayers[0].name + " (" + newPlayers[0].won + ") " + " vs " + " (" + newPlayers[1].won + ") " + newPlayers[1].name
 
-        const part = newPlayers[0].won + newPlayers[1].won
+        const part = newPlayers[0].won + newPlayers[1].won + 1
         const text = newPlayers[0].name + " vs " + newPlayers[1].name + " (" + part + ")"
-        window.webxdc.sendUpdate({ payload: { move: -1, moves: [] as number[], players: newPlayers, type: "new game" }, info: text, summary: summary }, text)
+        window.webxdc.sendUpdate({ payload: { move: -1, moves: [] as number[], players: newPlayers }, info: text, summary: summary }, text)
     }
     return (
         <div className="winner" onClick={newGame}>
