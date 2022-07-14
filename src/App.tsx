@@ -1,7 +1,5 @@
 import React from 'react'
 import { Game } from '~/Game'
-import '~/App.css'
-import 'uno.css'
 import { C4Provider } from '~/context/C4Context'
 
 /**
