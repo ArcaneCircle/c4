@@ -6,7 +6,6 @@ const MainScreen = (props: MainScreenProps) => {
   const isIncluded = players.some((p) => p.addr === playerAddr)
   const handleJoin = () => {
     const newPlayers = [...players, { name: playerName, addr: playerAddr, color: players.length === 0 ? '#000' : '#FFF', won: 0 }]
-    // setPlayers(newPlayers)
     setClicked(true)
     const text = playerName + " attempted to join Connect4"
     window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers, type: "join" } }, text)
