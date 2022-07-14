@@ -1,5 +1,5 @@
-import Board from './components/Board'
-import MainScreen from './components/MainScreen'
+import Board from '~/components/Board'
+import MainScreen from '~/components/MainScreen'
 import { useC4Context } from '~/context/C4Context'
 import { ReceivedStatusUpdate } from 'webxdc'
 

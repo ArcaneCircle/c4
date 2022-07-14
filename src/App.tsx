@@ -1,8 +1,8 @@
 import React from 'react'
-import { Game } from './Game'
-import './App.css'
+import { Game } from '~/Game'
+import '~/App.css'
 import 'uno.css'
-import { C4Provider } from './context/C4Context'
+import { C4Provider } from '~/context/C4Context'
 
 /**
  * App is the root React component.
