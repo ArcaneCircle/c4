@@ -17,10 +17,10 @@ export const Game: React.FC<{}> = () => {
           if (newPlayers.length === 2) setPlayers([newPlayers[0]])
           if (newPlayers.length === 1 && newPlayers[0].addr === playerAddr) {
             const summary = newPlayers[0].name + " is waiting for another player"
-            window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: summary, summary }, summary)
+            window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: "DeltaConnect: " + summary, summary }, summary)
           } else if (newPlayers.length === 2 && newPlayers[0].addr === playerAddr) {
             const summary = newPlayers[0].name + " vs " + newPlayers[1].name
-            window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: summary, summary }, summary)
+            window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: "DeltaConnect: " + summary, summary }, summary)
           }
         } else {
           setPlayers(newPlayers)

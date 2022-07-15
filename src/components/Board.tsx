@@ -32,7 +32,7 @@ const Board = () => {
                   const newMoves = [...moves, col]
                   setMoves(newMoves)
                   const nextPlayer = players.find(p => p.addr !== playerAddr)
-                  const text = "It's " + nextPlayer?.name + " turn in Connect4"
+                  const text = "DeltaConnect: " + nextPlayer?.name + "'s turn"
                   window.webxdc.sendUpdate({ payload: { move: col, moves: newMoves, players }, info: text }, text)
                   setGameArray(game.state.board)
                 }
