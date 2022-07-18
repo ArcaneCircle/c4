@@ -63,34 +63,37 @@ body, p {
 
 .winner {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 2rem;
   padding: 0.5rem;
-  /* background-color: rgba(0, 0, 255, 0.212); */
   color: aliceblue;
   border-radius: 0.5rem;
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-  -webkit-filter: drop-shadow(0.1rem 0.1rem 0.5rem black);
-
-          filter: drop-shadow(0.1rem 0.1rem 0.2rem black);
-
+.winner span {
+  font-weight: bold;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 90%;
+  -webkit-filter: drop-shadow(0.1rem 0.1rem 0.5rem black);
+          filter: drop-shadow(0.1rem 0.1rem 0.2rem black);
 }
 
-.winner::after {
+.winner span::after {
   content: " won!";  
   color: aliceblue;
-}
 
-.winner span {
-  font-weight: bold;
+  -webkit-filter: drop-shadow(0.1rem 0.1rem 0.5rem black);
+
+          filter: drop-shadow(0.1rem 0.1rem 0.2rem black);
 }
 
 .red {
