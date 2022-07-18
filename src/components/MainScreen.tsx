@@ -27,6 +27,6 @@ const MainScreen = (props: MainScreenProps) => {
   )
 }
 
-const Waiting = (props: WaitingProps) => props.first ? <p>Waiting for other player...</p> : <p>Waiting for the other player to accept...</p>
+const Waiting = (props: WaitingProps) => props.first ? <p>Waiting for another player...</p> : <p>Waiting for the other player to accept...</p>
 
 export default MainScreen
