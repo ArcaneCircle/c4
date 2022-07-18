@@ -8,7 +8,7 @@ import Status from './Status'
 const Board = () => {
   return (
     <C4Context.Consumer>
-      {({ playerAddr, players, gameArray, setGameArray, moves, setMoves, lastMove }) => {
+      {({ playerAddr, playerName, players, gameArray, setGameArray, moves, setMoves, lastMove }) => {
         const game = new Connect4([new Player('#000'), new Player('#FFF')])
         moves.map(move => game.insert(move))
         let lastMoveIndex = lastMove
@@ -32,7 +32,7 @@ const Board = () => {
                   const newMoves = [...moves, col]
                   setMoves(newMoves)
                   const nextPlayer = players.find(p => p.addr !== playerAddr)
-                  const text = "DeltaConnect: " + nextPlayer?.name + "'s turn"
+                  const text = game.state.winner ? "DeltaConnect: " + playerName + " won!" : "DeltaConnect: " + nextPlayer?.name + "'s turn"
                   window.webxdc.sendUpdate({ payload: { move: col, moves: newMoves, players }, info: text }, text)
                   setGameArray(game.state.board)
                 }
