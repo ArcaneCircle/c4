@@ -21,11 +21,12 @@ const MainScreen = (props: MainScreenProps) => {
           {players.map(player => <li key={player.addr}>{player.name}</li>)}
         </ul>
       </>}
-      {(players.length < 2 && !isIncluded) && !clicked ? <button onClick={handleJoin}>Join</button> : <p>Waiting...</p>}
-      {players.length === 2 && <button onClick={props.onClick} >Click to start</button>}
+      {(players.length < 2 && !isIncluded) && !clicked ? <button onClick={handleJoin}>Join</button> : <Waiting first={players[0]?.addr === playerAddr} />}
       <span className='player2'></span>
     </div>
   )
 }
+
+const Waiting = (props: WaitingProps) => props.first ? <p>Waiting for other player...</p> : <p>Waiting for the other player to accept...</p>
 
 export default MainScreen

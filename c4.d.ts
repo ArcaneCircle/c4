@@ -7,6 +7,10 @@ interface HeaderProps {
     blur: boolean
 }
 
+interface WaitingProps {
+    first: boolean
+}
+
 interface StatusProps {
     blur: boolean
     color: string
