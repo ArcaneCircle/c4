@@ -2,6 +2,7 @@ import Board from '~/components/Board'
 import MainScreen from '~/components/MainScreen'
 import { useC4Context } from '~/context/C4Context'
 import { ReceivedStatusUpdate } from 'webxdc'
+import { editName } from '~/utils/editName'
 
 export const Game: React.FC<{}> = () => {
   const { setPlayers, players, setMoves, setLastMove, playerAddr } = useC4Context()
@@ -16,10 +17,10 @@ export const Game: React.FC<{}> = () => {
         if (update.payload.type) {
           if (newPlayers.length === 2) setPlayers([newPlayers[0]])
           if (newPlayers.length === 1 && newPlayers[0].addr === playerAddr) {
-            const summary = newPlayers[0].name + " is waiting for another player"
+            const summary = editName(newPlayers[0].name, 12) + " is waiting for another player"
             window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: "DeltaConnect: " + summary, summary }, summary)
           } else if (newPlayers.length === 2 && newPlayers[0].addr === playerAddr) {
-            const summary = newPlayers[0].name + " vs " + newPlayers[1].name
+            const summary = editName(newPlayers[0].name, 8) + " vs " + editName(newPlayers[1].name, 8)
             window.webxdc.sendUpdate({ payload: { move: -1, moves: [], players: newPlayers }, info: "DeltaConnect: " + summary, summary }, summary)
           }
         } else {
