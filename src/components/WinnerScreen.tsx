@@ -23,7 +23,7 @@ const WinnerScreen = (props: WinnerProps) => {
         }
 
         setPlayers(newPlayers)
-        const summary = editName(newPlayers[0].name, 8) + " (" + newPlayers[0].won + ") " + " vs " + " (" + newPlayers[1].won + ") " + editName(newPlayers[1].name, 8)
+        const summary = editName(newPlayers[0].name, 8) + " vs " + editName(newPlayers[1].name, 8)
 
         const text = "New Game: " + newPlayers[0].name + " vs " + newPlayers[1].name + " in DeltaConnect"
         window.webxdc.sendUpdate({ payload: { move: -1, moves: [] as number[], players: newPlayers }, info: text, summary: summary }, text)
