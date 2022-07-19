@@ -3,7 +3,7 @@ import { editName } from '~/utils/editName'
 
 
 const Status = (props: StatusProps) => {
-    const { players, playerAddr, setMoves, setPlayers, setLastMove, moves, lastMove } = useC4Context();
+    const { players, playerAddr, setMoves, setPlayers, setLastMove, moves, lastMove, playerName } = useC4Context();
     const isPlaying = players.some((p) => p.addr === playerAddr)
     const isTurn = isPlaying ? props.color === players.find(p => p.addr === playerAddr)?.color : false
     const handleSurrender = () => {
@@ -22,8 +22,8 @@ const Status = (props: StatusProps) => {
 
             setPlayers(newPlayers)
             const summary = editName(newPlayers[0].name, 8) + " vs " + editName(newPlayers[1].name, 8)
-
-            const text = "New Game: " + newPlayers[0].name + " vs " + newPlayers[1].name + " in DeltaConnect"
+            const theOtherPlayer = players.find(player => player.addr !== playerAddr)?.name ?? "Opponent"
+            const text = "DeltaConnect: " + editName(playerName, 8) + " surrendered. " + editName(theOtherPlayer, 8) + " won!"
             window.webxdc.sendUpdate({ payload: { move: -1, moves: [] as number[], players: newPlayers }, info: text, summary: summary }, text)
         }
     }
