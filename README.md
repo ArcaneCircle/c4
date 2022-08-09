@@ -2,28 +2,6 @@
 
 Connect 4 board game clon for Delta Chat
 
-## Features
-
-- ⚡️ [Vite 2](https://github.com/vitejs/vite), [pnpm](https://pnpm.js.org/), [ESBuild](https://github.com/evanw/esbuild) - born with fastness
-
-- 😃 Use icons from any icon sets in [Pure CSS](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
-
-- ✅ Use [Vitest](http://vitest.dev/) for unit and components testing
-
-- 🦾 TypeScript, of course
-
-- 📱 Use the [Webxdc simulator](https://github.com/webxdc/hello) to test your Webxdc right on the browser while developing,
-  and use [Eruda](https://github.com/liriliri/eruda) to debug inside Delta Chat.
-
-- 📦 Automatically minify, build and release your `.xdc` file
-
-## Pre-packed
-
-### Plugins
-
-- [`unplugin-auto-import`](https://github.com/antfu/unplugin-auto-import) - Directly use react/react-router-dom API and others without importing
-- [usehooks-ts](https://usehooks-ts.com/) - collection of useful React hooks
-
 ## Usage
 
 ### Installing Dependecies
@@ -63,9 +41,3 @@ To automatically build and create a new GitHub release with your `.xdc` file:
 git tag v1.0.1
 git push origin v1.0.1
 ```
-
-## Try it now!
-
-### GitHub Template
-
-[Create a repo from this template on GitHub](https://github.com/webxdc/webxdc-react/generate).
