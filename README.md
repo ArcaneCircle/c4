@@ -1,43 +1,53 @@
 # DeltaConnect
 
-Connect 4 board game clon for Delta Chat
+Connect 4 board game clon for Webxdc
 
-## Usage
+## Contributing
 
-### Installing Dependecies
+### Installing Dependencies
 
-After cloning this repo for the first time, install dependecies:
+After cloning this repo, install dependecies:
 
 ```
 pnpm i
 ```
 
-### Testing
-
-To test your work in real time while developing:
+### Checking code format
 
 ```
-pnpm dev
+pnpm check
 ```
 
-**💡 TIP:** To debug inside Delta Chat, uncomment the `script` tag at the end of
-`index.html` file and your Webxdc will be packaged with developer tools inside!
+### Testing the app in the browser
+
+To test your work in your browser (with hot reloading!) while developing:
+
+```
+pnpm start
+```
 
 ### Building
 
-To package your webxdc file:
+To package the WebXDC file:
 
 ```
 pnpm build
 ```
 
-The resulting optimized `.xdc` file is saved in `dist/` folder.
+To package the WebXDC with developer tools inside to debug in Delta Chat, set the `NODE_ENV`
+environment variable to "debug":
+
+```
+NODE_ENV=debug pnpm build
+```
+
+The resulting optimized `.xdc` file is saved in `dist-xdc/` folder.
 
 ### Releasing
 
-To automatically build and create a new GitHub release with your `.xdc` file:
+To automatically build and create a new GitHub release with the `.xdc` file:
 
 ```
-git tag v1.0.1
+git tag -a v1.0.1
 git push origin v1.0.1
 ```

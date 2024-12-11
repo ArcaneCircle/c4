@@ -4,55 +4,31 @@ on:
   push:
     branches:
       - main
+      - master
     tags:
-      - 'v*.*.*'
-
+      - "v*.*.*"
   pull_request:
     branches:
       - main
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.x
-          cache: pnpm
-
-      - name: Install
-        run: pnpm i
-
-      - name: Build
-        run: pnpm run build
-
-#      - name: Lint
-#        run: pnpm run lint
-
-      - name: TypeCheck
-        run: pnpm run typecheck
-
-      - id: check-tag
-        run: |
-          if [[ "${{ github.event.ref }}" =~ ^refs/tags/v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-              echo ::set-output name=match::true
-          fi
+      - uses: actions/checkout@v4
+      - run: npm install -g pnpm
+      - run: pnpm install
+      - run: pnpm check
+      - run: pnpm build
 
       - name: Release
-        if: ${{ github.event_name == 'push' && steps.check-tag.outputs.match == 'true' }}
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/v')
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             Auto-generated release
           prerelease: ${{ contains(github.event.ref, '-beta') }}
           fail_on_unmatched_files: true
-          files: dist/*.xdc
+          files: ./dist-xdc/*.xdc
