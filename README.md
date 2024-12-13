@@ -6,7 +6,7 @@ Connect 4 board game clon for Webxdc
 
 ### Installing Dependencies
 
-After cloning this repo, install dependecies:
+After cloning this repo, install dependencies:
 
 ```
 pnpm i
