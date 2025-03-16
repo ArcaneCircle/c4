@@ -1,6 +1,6 @@
 # DeltaConnect
 
-Connect 4 board game clon for Webxdc
+Connect 4 board game clone for Webxdc
 
 ## Contributing
 

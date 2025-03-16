@@ -29,7 +29,7 @@ const MainScreen = (props: MainScreenProps) => {
     <div className="mainscreen">
       <span className="player1"></span>
       <h1>Connect4</h1>
-      <p>Hi, {playerName}! This is a clon of the classic Connect Four game</p>
+      <p>Hi, {playerName}! This is a clone of the classic Connect Four game</p>
       {players.length > 0 && (
         <>
           <h2>Players:</h2>
